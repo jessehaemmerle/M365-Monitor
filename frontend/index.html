@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>M365‑Monitor Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>M365‑Monitor</h1>
+    <div id="tenant"></div>
+  </header>
+
+  <main>
+    <section class="cards" id="serviceHealth">
+      <!-- Dynamisch befüllt: Service Health Tiles -->
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <h2>Sign‑Ins (letzte 24h)</h2>
+        <div class="kpis">
+          <div class="kpi"><span id="siTotal">–</span><label>Gesamt</label></div>
+          <div class="kpi"><span id="siFailed">–</span><label>Fehlgeschlagen</label></div>
+          <div class="kpi"><span id="siRate">–%</span><label>Fehlerquote</label></div>
+        </div>
+        <canvas id="signinsChart" height="120"></canvas>
+      </div>
+
+      <div class="panel">
+        <h2>Lizenzen</h2>
+        <table id="licenseTable">
+          <thead><tr><th>SKU</th><th>Verbraucht</th><th>Gebucht</th><th>Status</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h2>Aktuelle Vorfälle</h2>
+        <ul id="issuesList" class="issues"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Powered by Microsoft Graph · FastAPI · Chart.js</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
